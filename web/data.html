@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="sheet.css" media="screen" type="text/css">
+  <script src="https://kit.fontawesome.com/0bf26b838f.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Thinking in Java</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="start.html">How to start</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="data.html">Data types</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">Other books</a>
+            </li>
+            <li>
+                <i class="fab fa-facebook fa-2x scalingFacebook"></i>
+                <i class="fab fa-instagram fa-2x scalingInsta" ></i>
+            </li>
+            </ul>
+        </div>
+        </nav>
+
+    <img src="https://mpm.ph/wp-content/uploads/2013/05/corporate-documents.jpg" class="img-fluid" alt="Responsive image">
+  
+<div class="container d-flex flex-column">
+  <div class="row justify-content-center" style="width:100%" >
+    <div class="col-lg-9">
+      <h3 style="text-align: center; margin: 80px">Creating new data types: class </h3>
+      <p style="text-align: justify;">
+        
+        If everything is an object, what determines how a particular class of object looks and
+        behaves? Put another way, what establishes the type of an object? You might expect there to
+        be a keyword called “type,” and that certainly would have made sense. Historically, however,
+        most objectoriented languages have used the keyword class to mean “I’m about to tell you
+        what a new type of object looks like.” The class keyword (which is so common that it will not
+        usually be boldfaced throughout this book) is followed by the name of the new type. For
+        example:<br><br>
+        <b>class ATypeName { /* Class body goes here */ }<br><br></b>
+        This introduces a new type, although the class body consists only of a comment (the stars and
+        slashes and what is inside, which will be discussed later in this chapter), so there is not too
+        much that you can do with it. However, you can create an object of this type using new:<br><br>
+        <b>ATypeName a = new ATypeName();<br><br></b>
+        46 Thinking in Java Bruce Eckel<br>
+        But you cannot tell it to do much of anything (that is, you cannot send it any interesting
+        messages) until you define some methods for it.<br><br>
+        <b>Fields and methods</b><br><br>
+        When you define a class (and all you do in Java is define classes, make objects of those
+        classes, and send messages to those objects), you can put two types of elements in your class:
+        fields (sometimes called data members), and methods (sometimes called member functions).
+        A field is an object of any type that you can talk to via its reference, or a primitive type. If it is
+        a reference to an object, you must initialize that reference to connect it to an actual object
+        (using new, as seen earlier).<br>
+        Each object keeps its own storage for its fields; ordinary fields are not shared among objects.
+        Here is an example of a class with some fields:<br><br>
+        <b>class DataOnly {<br>
+        int i;<br>
+        double d;<br>
+        boolean b;<br>
+        }<br><br></b>
+        This class doesn’t do anything except hold data. But you can create an object like this:<br><br>
+        <b>DataOnly data = new DataOnly();<br><br></b>
+        You can assign values to the fields, but you must first know how to refer to a member of an
+        object. This is accomplished by stating the name of the object reference, followed by a period
+        (dot), followed by the name of the member inside the object:<br><br>
+        <b>objectReference.member<br>
+        For example:<br>
+        data.i = 47;<br>
+        data.d = 1.1;<br>
+        data.b = false;<br><br></b>
+        It is also possible that your object might contain other objects that contain data you’d like to
+        modify. For this, you just keep “connecting the dots.” For example:<br><br>
+        myPlane.leftTank.capacity = 100;<br><br>
+        The DataOnly class cannot do much of anything except hold data, because it has no
+        methods. To understand how those work, you must first understand arguments and return
+        values, which will be described shortly.<br><br>
+        <b>Default values for primitive members</b><br><br>
+        When a primitive data type is a member of a class, it is guaranteed to get a default value if
+        you do not initialize it:<br><br>
+        <b>Primitive type Default</b><br><br>
+
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Type</th>
+                <th scope="col">Default value</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>boolean</td>
+                <td>false</td>
+               
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>char</td>
+                <td>‘\u0000’ (null)</td>
+              </tr>
+
+              <tr>
+                <th scope="row">3</th>
+                <td>byte</td>
+                <td>(byte)0</td>
+              </tr>
+
+              <tr>
+                <th scope="row">5</th>
+                <td>short</td>
+                <td>(short)0</td>
+              </tr>
+            
+              <tr>
+                <th scope="row">6</th>
+                <td>int</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>long</td>
+                <td>0L</td>
+              </tr>
+
+              <tr>
+                <th scope="row">8</th>
+                <td>float</td>
+                <td>0.0f</td>
+              </tr>
+
+              <tr>
+                <th scope="row">9</th>
+                <td>double</td>
+                <td>0.0d</td>
+              </tr>
+
+            </tbody>
+          </table>
+         <br><br>
+        The default values are only what Java guarantees when the variable is used as a member of a
+        class. This ensures that member variables of primitive types will always be initialized
+        (something C++ doesn’t do), reducing a source of bugs. However, this initial value may not
+        be correct or even legal for the program you are writing. It’s best to always explicitly initialize
+        your variables.<br>
+        This guarantee doesn’t apply to local variables—those that are not fields of a class. Thus, if
+        within a method definition you have:<br><br>
+        <b>int x;<br><br></b>
+        Then x will get some arbitrary value (as in C and C++); it will not automatically be initialized
+        to zero. You are responsible for assigning an appropriate value before you use x. If you forget,
+        Java definitely improves on C++: You get a compile-time error telling you the variable might
+        not have been initialized. (Many C++ compilers will warn you about uninitialized variables,
+        but in Java these are errors.) <br>
+    </div>
+  </div>
+</div>
+
+    <footer>
+        <div class="row info" style="width: 100%;">
+        <p>Thinking in Java</p>   
+        <p >More information in a book :) </p>
+    </div>
+    </footer>
+</body>
+</html>

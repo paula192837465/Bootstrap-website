@@ -1,0 +1,61 @@
+.title_web
+{
+    position: absolute;
+    top: 40vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.scalingFacebook
+{
+    position: absolute; 
+    right: 10px; 
+    top:12px;
+}
+
+.scalingInsta
+{
+    position: absolute; 
+    right: 55px; 
+    top:12px;
+}
+
+@media (max-width: 1000px)
+{
+    .scalingFacebook
+    {
+        top:55px;
+    }
+    
+    .scalingInsta
+    {
+        top:55px;
+    }
+}
+
+footer
+{
+    background-color: rgb(211, 211, 211);
+    padding: 20px 30px 10px;
+    font-size: larger;
+    margin-top: 60px;
+}
+
+footer .info :first-child
+{
+    margin-right: 50px;
+}
+footer .info  :last-child
+{
+    color: gray;
+    font-size: smaller;
+    margin-top: 5px;
+    
+}
+
+.autors
+{
+    font-weight: bold;
+    text-align: right;
+}

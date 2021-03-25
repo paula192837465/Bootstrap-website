@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="sheet.css" media="screen" type="text/css">
+  <script src="https://kit.fontawesome.com/0bf26b838f.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Thinking in Java</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="start.html">How to start</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="data.html">Data types</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.html">Other books</a>
+            </li>
+            <li>
+                <i class="fab fa-facebook fa-2x scalingFacebook"></i>
+                <i class="fab fa-instagram fa-2x scalingInsta" ></i>
+            </li>
+            </ul>
+        </div>
+        </nav>
+
+    <img src="https://fjwp.s3.amazonaws.com/blog/wp-content/uploads/2015/12/09112429/work-life-balance-working-from-home.jpg" class="img-fluid" alt="Responsive image">
+  
+<div class="container d-flex flex-column" >
+  <div class="row justify-content-center" style="width:100%" >
+    <div class="col-lg-9">
+      <h3 style="text-align: center; margin: 80px">Your first Java program </h3>
+      <p style="text-align: justify;">
+        Finally, here’s the first complete program. It starts by printing a string, and then the date,
+        using the Date class from the Java standard library.<br><br>
+        <b>// HelloDate.java<br>
+        import java.util.*;<br>
+        public class HelloDate {<br>
+         public static void main(String[] args) {<br>
+         System.out.println("Hello, it’s: ");<br>
+         System.out.println(new Date());<br>
+         }
+        }<br><br></b>
+        52 Thinking in Java Bruce Eckel<br>
+        Everything Is an Object 53<br><br>
+        At the beginning of each program file, you must place any necessary import statements to
+        bring in extra classes you’ll need for the code in that file. Note that I say “extra”. That’s
+        because there’s a certain library of classes that are automatically brought into every Java file:
+        java.lang. Start up your Web browser and look at the documentation from Sun. (If you
+        haven’t downloaded the JDK documentation from http://java.sun.com, do so now.5 Note
+        that this documentation doesn’t come packed with the JDK; you must do a separate
+        download to get it.) If you look at the list of the packages, you’ll see all the different class
+        libraries that come with Java. Select java.lang. This will bring up a list of all the classes that
+        are part of that library. Since java.lang is implicitly included in every Java code file, these
+        classes are automatically available. There’s no Date class listed in java.lang, which means
+        you must import another library to use that. If you don’t know the library where a particular
+        class is, or if you want to see all of the classes, you can select “Tree” in the Java
+        documentation. Now you can find every single class that comes with Java. Then you can use
+        the browser’s “find” function to find Date. When you do you’ll see it listed as
+        java.util.Date, which lets you know that it’s in the util library and that you must import
+        java.util.* in order to use Date.
+        If you go back to the beginning, select java.lang and then System, you’ll see that the
+        System class has several fields, and if you select out, you’ll discover that it’s a static
+        PrintStream object. Since it’s static, you don’t need to create anything with new. The out
+        object is always there, and you can just use it. What you can do with this out object is
+        determined by its type: PrintStream. Conveniently, PrintStream is shown in the
+        description as a hyperlink, so if you click on that, you’ll see a list of all the methods you can
+        call for PrintStream. There are quite a few, and these will be covered later in the book. For
+        now all we’re interested in is println( ), which in effect means “Print what I’m giving you
+        out to the console and end with a newline.” Thus, in any Java program you write you can
+        write something like this:<br><br>
+        <b>System.out.println("A String of things");<br><br></b>
+        whenever you want to display information to the console.
+        The name of the class is the same as the name of the file. When you’re creating a standalone
+        program such as this one, one of the classes in the file must have the same name as the file.
+        (The compiler complains if you don’t do this.) That class must contain a method called
+        main( ) with this signature and return type:<br><br>
+        <b>public static void main(String[] args) {<br><br></b>
+        The public keyword means that the method is available to the outside world (described in
+        detail in the Access Control chapter). The argument to main( ) is an array of String objects.
+        The args won’t be used in this program, but the Java compiler insists that they be there
+        because they hold the arguments from the command line.
+        The line that prints the date is quite interesting:<br><br>
+        <b>System.out.println(new Date());<br><br></b>
+        The argument is a Date object that is being created just to send its value (which is
+        automatically converted to a String) to println( ). As soon as this statement is finished,
+        that Date is unnecessary, and the garbage collector can come along and get it anytime. We
+        don’t need to worry about cleaning it up.<br><br>
+                                                                   
+        5 The Java compiler and documentation from Sun tend to change regularly, and the best place to get them is directly from
+        Sun. By downloading it yourself, you will get the most recent version.
+        54 Thinking in Java Bruce Eckel<br><br>
+        When you look at the JDK documentation from http://java.sun.com, you will see that
+        System has many other methods that allow you to produce interesting effects (one of Java’s
+        most powerful assets is its large set of standard libraries). For example:<br><br>
+        <b>//: object/ShowProperties.java<br>
+        public class ShowProperties {<br>
+         public static void main(String[] args) {<br>
+         System.getProperties().list(System.out);<br>
+         System.out.println(System.getProperty("user.name"));<br>
+         System.out.println(<br>
+         System.getProperty("java.library.path"));<br>
+         }
+        } ///:~<br><br></b>
+        The first line in main( ) displays all of the “properties” from the system where you are
+        running the program, so it gives you environment information. The list( ) method sends the
+        results to its argument, System.out. You will see later in the book that you can send the
+        results elsewhere, to a file, for example. You can also ask for a specific property—in this case,
+        the user name and java.library.path. (The unusual comments at the beginning and end
+        will be explained a little later.)</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+    <div class="row info" style="width: 100%;">
+    <p>Thinking in Java</p>   
+    <p >More information in a book :) </p>
+</div>
+</footer>
+
+
+
+</body>
+</html>
